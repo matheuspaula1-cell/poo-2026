@@ -23,4 +23,19 @@ public class Mago extends Personagem {
         super.ficha();
         System.out.println("Mana: " + mana);
     }
+    @Override
+    public void habilidadeEspecial(Personagem alvo) {
+        int custoMana = 10;
+    
+        if (this.mana < custoMana) {
+            System.out.println(this.nome + " não tem mana suficiente para conjurar!");
+            return;
+        }
+    
+        this.mana -= custoMana;
+        int danoMagico = this.forca * 2;
+    
+        System.out.println(this.nome + " usa rajada arcana!");
+        alvo.receberDano(danoMagico);
+    }
 }
